@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NodeGIS - High Performance NodeJS GIS Server</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="NodeGIS - High Performance NodeJS GIS Server">
+    <meta name="author" content="MrTiggr">
+    <meta name="author" content="Bitcrafted by TIGGR (c) 2001-2012">
+    <!--[if lt IE 8]>
+    <script>
+      // Sorry.
+      window.location = './browser.html';
+    </script>
+    <![endif]-->
+    <script src="./js/jquery-1.5.1.min.js"></script>
+    <script src="./js/nodeGIS.js"></script>
+    <style type="text/css">
+      .banner {
+        -moz-box-shadow: -10px -10px -5px #888;
+        -webkit-box-shadow: -10px -10px -5px #888;
+        box-shadow: -10px -10px -5px #888;
+      }
+      body { 
+        background-image: url(./img/back.png); 
+        background-repeat: repeat;
+      }
+    </style>
+    <link href="./css/bootstrap.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+          </a>
+          <a class="brand" href="#">NodeGIS - Management Console</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="./options">Options</a></li>
+              <li><a href="./explorer.html">GIS Explorer</a></li>
+            </ul>
+            <p class="navbar-text pull-right">Logged in as <a href="#"><%= user%></a></p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <br/><br/><br/>
+    
+  <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Home</li>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="./options">Options</a></li>
+              <li><a href="./explorer.html">GIS Explorer</a></li>
+              <li class="nav-header">Data Sources</li>
+              <li><a href="./sources">Show Sources</a></li>
+              <li class="active"><a href="./addSource">Add Source</a></li>
+              <li class="nav-header">Services</li>
+              <li><a href="./services">Show Services</a></li>
+              <li><a href="./addService">Add Service</a></li>
+              <li class="nav-header">Tasks</li>
+              <li><a href="./tasks">Task Manager</a></li>
+              <li><a href="./addTask">Add New Task</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="row">
+        <div class="span9">
+          <form class="form-horizontal">
+            <fieldset>
+              <legend>Add new Data Source</legend>
+              <div class="control-group">
+                <label class="control-label" for="focusedInput">Focused input</label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="focusedInput" type="text" value="This is focused…">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Uneditable input</label>
+                <div class="controls">
+                  <span class="input-xlarge uneditable-input">Some value here</span>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="disabledInput">Disabled input</label>
+                <div class="controls">
+                  <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="Disabled input here…" disabled>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="optionsCheckbox2">Disabled checkbox</label>
+                <div class="controls">
+                  <label class="checkbox">
+                    <input type="checkbox" id="optionsCheckbox2" value="option1" disabled>
+                    This is a disabled checkbox
+                  </label>
+                </div>
+              </div>
+              <div class="control-group warning">
+                <label class="control-label" for="inputError">Input with warning</label>
+                <div class="controls">
+                  <input type="text" id="inputError">
+                  <span class="help-inline">Something may have gone wrong</span>
+                </div>
+              </div>
+              <div class="control-group error">
+                <label class="control-label" for="inputError">Input with error</label>
+                <div class="controls">
+                  <input type="text" id="inputError">
+                  <span class="help-inline">Please correct the error</span>
+                </div>
+              </div>
+              <div class="control-group success">
+                <label class="control-label" for="inputError">Input with success</label>
+                <div class="controls">
+                  <input type="text" id="inputError">
+                  <span class="help-inline">Woohoo!</span>
+                </div>
+              </div>
+              <div class="control-group success">
+                <label class="control-label" for="selectError">Select with success</label>
+                <div class="controls">
+                  <select id="selectError">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                  <span class="help-inline">Woohoo!</span>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="reset" class="btn">Cancel</button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="footer" style="float:bottom;">
+      <p><strong>NodeGIS</strong>, Bitcrafted by TIGGR.</p>
+      <p>Follow us on
+        <a href="http://twitter.com/MrTiggr">Twitter</a> or
+        <a href="https://github.com/MrTiggr">GitHub</a>.
+        Maintained by <a href="http://www.worldzeitgeist.org/">Wayne Lee-Archer [MrTiggr]</a>.
+      </p>
+    </div>
+  </body>
+</html>

@@ -67,4 +67,38 @@ app.get('/', function(req, res) {
   DB.close();
 });
 
+app.get('/sources', function(req, res) {
+  var DB = new gis.DataManager({});
+  DB.listSources(function(srs) {
+    res.render(__dirname + '/views/sources.ejs', {
+      user: 'tiggr',
+      sources: srs,
+      layout: false
+    });
+  });
+  DB.close();
+});
+
+app.get('/addSource', function(req, res) {
+  res.render(__dirname + '/views/addsource.ejs', {
+    user: 'tiggr',
+    layout: false
+  });
+});
+
+app.post('/addSource', function(req, res) {
+  var DB = new gis.DataManager({});
+
+
+
+  DB.listSources(function(srs) {
+    res.render(__dirname + '/views/sources.ejs', {
+      user: 'tiggr',
+      sources: srs,
+      layout: false
+    });
+  });
+  DB.close();
+});
+
 app.listen(3000);
