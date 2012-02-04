@@ -75,69 +75,18 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="row">
-        <div class="span9">
-          <form class="form-horizontal">
+        <div class="span9 well">
+          <form class="form-horizontal" action="POST" method="./addSource">
             <fieldset>
-              <legend>Add new Data Source</legend>
+              <legend>Add New Data Source</legend>
               <div class="control-group">
-                <label class="control-label" for="focusedInput">Focused input</label>
+                <label class="control-label" for="sourceid">Source ID:</label>
                 <div class="controls">
-                  <input class="input-xlarge focused" id="focusedInput" type="text" value="This is focused…">
+                  <input class="input-xlarge focused" id="sourceid" type="text" value="UrlCompatibleID">
                 </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Uneditable input</label>
+                <label class="control-label" for="sourcename">Source Name:</label>
                 <div class="controls">
-                  <span class="input-xlarge uneditable-input">Some value here</span>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label" for="disabledInput">Disabled input</label>
-                <div class="controls">
-                  <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="Disabled input here…" disabled>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label" for="optionsCheckbox2">Disabled checkbox</label>
-                <div class="controls">
-                  <label class="checkbox">
-                    <input type="checkbox" id="optionsCheckbox2" value="option1" disabled>
-                    This is a disabled checkbox
-                  </label>
-                </div>
-              </div>
-              <div class="control-group warning">
-                <label class="control-label" for="inputError">Input with warning</label>
-                <div class="controls">
-                  <input type="text" id="inputError">
-                  <span class="help-inline">Something may have gone wrong</span>
-                </div>
-              </div>
-              <div class="control-group error">
-                <label class="control-label" for="inputError">Input with error</label>
-                <div class="controls">
-                  <input type="text" id="inputError">
-                  <span class="help-inline">Please correct the error</span>
-                </div>
-              </div>
-              <div class="control-group success">
-                <label class="control-label" for="inputError">Input with success</label>
-                <div class="controls">
-                  <input type="text" id="inputError">
-                  <span class="help-inline">Woohoo!</span>
-                </div>
-              </div>
-              <div class="control-group success">
-                <label class="control-label" for="selectError">Select with success</label>
-                <div class="controls">
-                  <select id="selectError">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                  <span class="help-inline">Woohoo!</span>
+                  <input class="input-xlarge focused" id="sourcename" type="text" value="Name of Source">
                 </div>
               </div>
               <div class="form-actions">

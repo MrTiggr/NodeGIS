@@ -17,14 +17,37 @@ var gis = {
         }
         callback(sources);
       });
-      this.close = function() {
-        self.client.quit();
+    }
+    this.addSource = function(source, callback, error) {
+      try {
+        self.client.hset(["ngis::sources", source.id, JSON.stringify(source)], redis.print);
+      } catch (er) {
+        if (error) {
+          error(er);
+          return false;
+        }
       }
+      callback(source);
+      return source;
+    }
+    this.getSource = function(id, callback) {
+
+    };
+    this.close = function() {
+      self.client.quit();
     }
   },
-  DataSource: function DataSource(id, schema, opts) {
+  DataSource: function DataSource(id, name, schema, opts) {
     this.id = id;
-    this.schema = schema;
+    this.name = name;
+    this.schema = schema || {};
+    var self = this;
+    this.open = function() {
+      self.client = redis.createClient();
+      self.client.on("error", function(err) {
+        console.log("Error " + err);
+      });
+    }
     this.query = function(query, callback) {
 
     };
@@ -37,6 +60,12 @@ var gis = {
     this.update = function(feature, callback) {
 
     };
+    this.save = function(feature) {
+
+    };
+    this.close = function() {
+      self.client.quit();
+    }
   },
   Feature: function Feature(opts) {
 
@@ -88,14 +117,14 @@ app.get('/addSource', function(req, res) {
 
 app.post('/addSource', function(req, res) {
   var DB = new gis.DataManager({});
-
-
-
-  DB.listSources(function(srs) {
-    res.render(__dirname + '/views/sources.ejs', {
-      user: 'tiggr',
-      sources: srs,
-      layout: false
+  var source = new gis.DataSource(req.params["sourceid"], req.params["sourcename"]);
+  DB.addSource(source, function(srs) {
+    DB.listSources(function(srs) {
+      res.render(__dirname + '/views/sources.ejs', {
+        user: 'tiggr',
+        source: srs,
+        layout: false
+      });
     });
   });
   DB.close();
