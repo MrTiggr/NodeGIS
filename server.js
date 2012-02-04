@@ -20,49 +20,51 @@ var gis = {
       this.close = function() {
         self.client.close();
       }
-    }, DataSource: function DataSource(id, schema, opts) {
-      this.id = id;
-      this.schema = schema;
-      this.query = function(query, callback) {
-
-      };
-      this.getById = function(id, callback) {
-
-      };
-      this.insert = function(feature, callback) {
-
-      };
-      this.update = function(feature, callback) {
-
-      };
-    },
-    Feature: function Feature(opts) {
-
     }
+  },
+  DataSource: function DataSource(id, schema, opts) {
+    this.id = id;
+    this.schema = schema;
+    this.query = function(query, callback) {
+
+    };
+    this.getById = function(id, callback) {
+
+    };
+    this.insert = function(feature, callback) {
+
+    };
+    this.update = function(feature, callback) {
+
+    };
+  },
+  Feature: function Feature(opts) {
+
   }
+}
 
 
-  app.configure(function() {
-    app.use(express.methodOverride());
-    app.use(express.bodyParser());
-    app.use(app.router);
-    app.use(express.static(__dirname + '/public'));
-    app.use(express.errorHandler({
-      dumpExceptions: true,
-      showStack: true
-    }));
+app.configure(function() {
+  app.use(express.methodOverride());
+  app.use(express.bodyParser());
+  app.use(app.router);
+  app.use(express.static(__dirname + '/public'));
+  app.use(express.errorHandler({
+    dumpExceptions: true,
+    showStack: true
+  }));
+});
+
+app.get('/', function(req, res) {
+  var DB = new gis.DataManager({});
+  DB.listSources(function(srs) {}
+  res.render(__dirname + '/views/index.ejs', {
+    user: 'tiggr',
+    sources: srs,
+    layout: false
   });
+  }
+  DB.close();
+});
 
-  app.get('/', function(req, res) {
-    var DB = new gis.DataManager({});
-    DB.listSources(function(srs) {}
-    res.render(__dirname + '/views/index.ejs', {
-      user: 'tiggr',
-      sources: srs,
-      layout: false
-    });
-    }
-    DB.close();
-  });
-
-  app.listen(3000);
+app.listen(3000);
