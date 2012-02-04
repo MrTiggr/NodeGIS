@@ -1,7 +1,7 @@
 var express = require('express');
 var app = require('express').createServer();
 
-var gis = require("./lib/nodeGIS.js");
+var gis = require(__dirname + "/lib/nodeGIS.js");
 
 app.configure(function() {
   app.use(express.methodOverride());
