@@ -1,3 +1,4 @@
+var express = require('express');
 var app = require('express').createServer();
 app.configure(function() {
   app.use(express.methodOverride());
