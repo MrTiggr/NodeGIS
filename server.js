@@ -18,7 +18,7 @@ var gis = {
         callback(sources);
       });
       this.close = function() {
-        self.client.close();
+        self.client.quit();
       }
     }
   },
