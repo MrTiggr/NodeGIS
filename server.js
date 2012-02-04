@@ -113,7 +113,7 @@ app.get('/addSource', function(req, res) {
 
 app.post('/addSource', function(req, res) {
   var DB = new gis.DataManager({});
-  var source = new gis.DataSource(req.param("sourceid"), req.param("sourcename");
+  var source = new gis.DataSource(req.param("sourceid"), req.param("sourcename"));
   DB.addSource(source, function(srs) {
     DB.listSources(function(srses) {
       res.render(__dirname + '/views/sources.ejs', {
@@ -124,6 +124,6 @@ app.post('/addSource', function(req, res) {
     });
   });
 
-  });
+});
 
 app.listen(3000);
