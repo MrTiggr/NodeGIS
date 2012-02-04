@@ -19,14 +19,7 @@ var gis = {
       });
     }
     this.addSource = function(source, callback, error) {
-      try {
-        self.client.hset(["ngis::sources", source.id, JSON.stringify(source)], redis.print);
-      } catch (er) {
-        if (error) {
-          error(er);
-          return false;
-        }
-      }
+      self.client.hset(["ngis::sources", source.id, JSON.stringify(source)], redis.print);
       callback(source);
       return source;
     }
@@ -119,15 +112,16 @@ app.post('/addSource', function(req, res) {
   var DB = new gis.DataManager({});
   var source = new gis.DataSource(req.params["sourceid"], req.params["sourcename"]);
   DB.addSource(source, function(srs) {
-    DB.listSources(function(srs) {
+    DB.listSources(function(srses) {
       res.render(__dirname + '/views/sources.ejs', {
         user: 'tiggr',
-        sources: srs,
+        sources: srses,
         layout: false
       });
+      DB.close();
     });
   });
-  DB.close();
+
 });
 
 app.listen(3000);
