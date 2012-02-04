@@ -1,6 +1,6 @@
 var express = require('express');
 var app = require('express').createServer();
-
+var redis = require("redis");
 var gis = require(__dirname + "/lib/nodeGIS.js");
 var DB = new gis.DataManager();
 
