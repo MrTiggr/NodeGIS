@@ -122,7 +122,7 @@ app.post('/addSource', function(req, res) {
     DB.listSources(function(srs) {
       res.render(__dirname + '/views/sources.ejs', {
         user: 'tiggr',
-        source: srs,
+        sources: srs,
         layout: false
       });
     });
