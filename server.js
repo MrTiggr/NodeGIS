@@ -10,7 +10,7 @@ var gis = {
       console.log("Error " + err);
     });
     this.listSources = function(callback) {
-      self.client.hgetall("ngis::sources", function(err, obj) {
+      self.client.hgetall("ngis_datasources", function(err, obj) {
         var sources = [];
         for (var s in obj) {
           sources.push(JSON.parse(obj[s]));
@@ -22,7 +22,7 @@ var gis = {
       var src = {};
       src[source.id] = JSON.stringify(source);
 
-      self.client.HMSET("ngis::sources", src);
+      self.client.HMSET("ngis_datasources", src);
       callback(source);
       return source;
     }
