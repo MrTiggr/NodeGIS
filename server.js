@@ -57,13 +57,13 @@ app.configure(function() {
 
 app.get('/', function(req, res) {
   var DB = new gis.DataManager({});
-  DB.listSources(function(srs) {}
-  res.render(__dirname + '/views/index.ejs', {
-    user: 'tiggr',
-    sources: srs,
-    layout: false
+  DB.listSources(function(srs) {
+    res.render(__dirname + '/views/index.ejs', {
+      user: 'tiggr',
+      sources: srs,
+      layout: false
+    });
   });
-  }
   DB.close();
 });
 
