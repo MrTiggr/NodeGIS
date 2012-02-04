@@ -86,7 +86,7 @@ app.get('/', function(req, res) {
       layout: false
     });
   });
-  DB.close();
+  //DB.close();
 });
 
 app.get('/sources', function(req, res) {
@@ -98,7 +98,7 @@ app.get('/sources', function(req, res) {
       layout: false
     });
   });
-  DB.close();
+  //DB.close();
 });
 
 app.get('/addSource', function(req, res) {
@@ -118,7 +118,6 @@ app.post('/addSource', function(req, res) {
         sources: srses,
         layout: false
       });
-      DB.close();
     });
   });
 
