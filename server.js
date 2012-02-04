@@ -21,7 +21,7 @@ var gis = {
     this.addSource = function(source, callback, error) {
       var src = {};
       src[source.id] = JSON.stringify(source);
-      self.client.HMSET(key2, src);
+      self.client.HMSET("ngis::sources", src);
       callback(source);
       return source;
     }
