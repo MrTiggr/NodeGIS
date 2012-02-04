@@ -13,15 +13,15 @@ var gis = {
       self.client.hgetall("ngis::sources", function(err, obj) {
         var sources = [];
         for (var s in obj) {
-          sources.push(obj[s]);
+          sources.push(JSON.parse(obj[s]));
         }
         callback(sources);
       });
     }
     this.addSource = function(source, callback, error) {
-      self.client.HMSET(key2, {
-        source.id: JSON.stringify(source)
-      });
+      var src = {};
+      src[source.id] = JSON.stringify(source);
+      self.client.HMSET(key2, src);
       callback(source);
       return source;
     }
