@@ -19,7 +19,9 @@ var gis = {
       });
     }
     this.addSource = function(source, callback, error) {
-      self.client.hset(["ngis::sources", source.id, JSON.stringify(source)], redis.print);
+      self.client.HMSET(key2, {
+        source.id: JSON.stringify(source)
+      });
       callback(source);
       return source;
     }
