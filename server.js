@@ -5,7 +5,7 @@ var jsts = require(__dirname + "/lib/jsts.js");
 var gis = {
   DataManager: function DataManager(opts) {
     this.client = redis.createClient();
-    client.on("error", function(err) {
+    this.client.on("error", function(err) {
       console.log("Error " + err);
     });
 
