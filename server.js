@@ -1,5 +1,8 @@
 var express = require('express');
 var app = require('express').createServer();
+
+var gis = require("./lib/nodeGIS.js");
+
 app.configure(function() {
   app.use(express.methodOverride());
   app.use(express.bodyParser());
@@ -10,6 +13,7 @@ app.configure(function() {
     showStack: true
   }));
 });
+
 app.get('/', function(req, res) {
   res.render(__dirname + '/views/index.ejs', {
     user: 'tiggr',
