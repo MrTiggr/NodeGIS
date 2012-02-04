@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
 
   res.render(__dirname + '/views/index.ejs', {
     user: 'tiggr',
-    sources: DB.listSources()
+    sources: DB.listSources(),
     layout: false
   });
 });
