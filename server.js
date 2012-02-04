@@ -1,7 +1,7 @@
 var app = require('express').createServer();
 
 app.get('/', function(req, res) {
-  res.render('./views/index.ejs', {
+  res.render('/home/ubuntu/NodeGIS/views/index.ejs', {
     user: 'tiggr'
   });
 });
