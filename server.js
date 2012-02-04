@@ -13,7 +13,7 @@ var gis = {
       self.client.hgetall("ngis_datasources", function(err, obj) {
         var sources = [];
         for (var s in obj) {
-          sources.push(JSON.parse(obj[s]));
+          sources.push(obj[s]);
         }
         callback(sources);
       });
