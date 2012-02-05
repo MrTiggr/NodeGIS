@@ -3,9 +3,8 @@ var app = require('express').createServer(express.logger(), express.bodyParser()
 var redis = require("redis");
 var jsts = require(__dirname + "/lib/jsts.js");
 var uuid = require('node-uuid');
-
-var geomFactory = new jsts.geom.GeometryFactory(new jsts.geom.PrecisionModel(jsts.geom.PrecisionModel.FLOATING));
-
+console.log(jsts);
+//var geomFactory = new jsts.geom.GeometryFactory(new jsts.geom.PrecisionModel(jsts.geom.PrecisionModel.FLOATING));
 var gis = {
   DataManager: function DataManager(opts) {
     var self = this;
