@@ -115,8 +115,8 @@ app.get('/addSource', function(req, res) {
 app.post('/addSource', function(req, res) {
   var DB = new gis.DataManager({});
   var source = new gis.DataSource(req.param("sourceid"), req.param("sourcename"));
-  source.id = req.params["sourceid"];
-  source.name = req.params["sourcename"];
+  source.id = req.param("sourceid");
+  source.name = req.param("sourcename");
   console.log(source);
   DB.addSource(source, function(srs) {
     DB.listSources(function(srses) {
