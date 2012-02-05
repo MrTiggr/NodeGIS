@@ -42,7 +42,7 @@
           <a class="brand" href="#">NodeGIS - Management Console</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="./">Home</a></li>
               <li><a href="./options">Options</a></li>
               <li><a href="./explorer.html">GIS Explorer</a></li>
             </ul>
@@ -59,7 +59,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Home</li>
-              <li><a href="#">Dashboard</a></li>
+              <li><a href="./">Dashboard</a></li>
               <li><a href="./options">Options</a></li>
               <li><a href="./explorer.html">GIS Explorer</a></li>
               <li class="nav-header">Data Sources</li>
@@ -76,18 +76,25 @@
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
+          Data Sources
           <div class="row-fluid">
             <div class="span6 well">
               <% if (sources.length) { %>
                 <table class="table table-striped table-bordered table-condensed">
-                  <% sources.forEach(function(source){%>
-                    <tr>
-                    <td><em><%= source.uuid %></em></td>
-                    <td><%= source.id %></td>
-                    <td><%= source.name %></td>
-                    <td><a href='./source/<%= source.id %>' class='btn-primary'>edit</a></td>
-                    </tr>
-                  <% }) %>
+                    <th>
+                      <td><em>UUID</em></td>
+                      <td>Source ID</td>
+                      <td>Source Name</td>
+                      <td></td>
+                    </th>
+                    <% sources.forEach(function(source){%>
+                      <tr>
+                        <td><em><%= source.uuid %></em></td>
+                        <td><%= source.id %></td>
+                        <td><%= source.name %></td>
+                        <td><a href='./source/<%= source.id %>' class="btn btn-small icon-edit">edit</a></td>
+                      </tr>
+                    <% }) %>
                 </table>
               <% } %>
             </div><!--/span-->
