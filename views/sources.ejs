@@ -59,7 +59,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Home</li>
-              <li class="active"><a href="#">Dashboard</a></li>
+              <li><a href="#">Dashboard</a></li>
               <li><a href="./options">Options</a></li>
               <li><a href="./explorer.html">GIS Explorer</a></li>
               <li class="nav-header">Data Sources</li>
@@ -79,11 +79,16 @@
           <div class="row-fluid">
             <div class="span6 well">
               <% if (sources.length) { %>
-                <ul>
+                <table class="table table-striped table-bordered table-condensed">
                   <% sources.forEach(function(source){%>
-                    <li><%= source %></li>
+                    <tr>
+                    <td><em><%= source.uuid %></em></td>
+                    <td><%= source.id %></td>
+                    <td><%= source.name %></td>
+                    <td><a href='./source/<%= source.id %>' class='btn-primary'>edit</a></td>
+                    </tr>
                   <% }) %>
-                </ul>
+                </table>
               <% } %>
             </div><!--/span-->
            
