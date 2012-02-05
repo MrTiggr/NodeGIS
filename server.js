@@ -2,6 +2,8 @@ var express = require('express');
 var app = require('express').createServer();
 var redis = require("redis");
 var jsts = require(__dirname + "/lib/jsts.js");
+var uuid = require('node-uuid');
+
 var gis = {
   DataManager: function DataManager(opts) {
     var self = this;
@@ -33,8 +35,9 @@ var gis = {
     }
   },
   DataSource: function DataSource(id, name, schema, opts) {
-    this.id = id;
-    this.name = name;
+    this.id = id || uuid.v4();
+    this.name = name || this.id;
+    this.uuid = uuid.v4();
     this.schema = schema || {};
     var self = this;
     this.open = function() {
@@ -113,6 +116,8 @@ app.get('/addSource', function(req, res) {
 app.post('/addSource', function(req, res) {
   var DB = new gis.DataManager({});
   var source = new gis.DataSource(req.param("sourceid"), req.param("sourcename"));
+  source.id = req.param("sourceid");
+  source.name = req.param("sourcename");
   DB.addSource(source, function(srs) {
     DB.listSources(function(srses) {
       res.render(__dirname + '/views/sources.ejs', {
