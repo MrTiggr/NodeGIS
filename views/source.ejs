@@ -14,8 +14,8 @@
       window.location = './browser.html';
     </script>
     <![endif]-->
-    <script src="./js/jquery-1.5.1.min.js"></script>
-    <script src="./js/nodeGIS.js"></script>
+    <script src="../../js/jquery-1.5.1.min.js"></script>
+    <script src="../../js/nodeGIS.js"></script>
     <style type="text/css">
       .banner {
         -moz-box-shadow: -10px -10px -5px #888;
@@ -23,11 +23,11 @@
         box-shadow: -10px -10px -5px #888;
       }
       body { 
-        background-image: url(./img/back.png); 
+        background-image: url(../../img/back.png); 
         background-repeat: repeat;
       }
     </style>
-    <link href="./css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
   </head>
 
   <body>
@@ -43,8 +43,8 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="./">Home</a></li>
-              <li><a href="./options">Options</a></li>
-              <li><a href="./explorer.html">GIS Explorer</a></li>
+              <li><a href="../../options">Options</a></li>
+              <li><a href="../../explorer.html">GIS Explorer</a></li>
             </ul>
             <p class="navbar-text pull-right">Logged in as <a href="#"><%= user%></a></p>
           </div><!--/.nav-collapse -->
@@ -59,24 +59,24 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Home</li>
-              <li><a href="./">Dashboard</a></li>
-              <li><a href="./options">Options</a></li>
-              <li><a href="./explorer.html">GIS Explorer</a></li>
+              <li><a href="../../">Dashboard</a></li>
+              <li><a href="../../options">Options</a></li>
+              <li><a href="../../explorer.html">GIS Explorer</a></li>
               <li class="nav-header">Data Sources</li>
-              <li><a href="./sources">Show Sources</a></li>
+              <li><a href="../../sources">Show Sources</a></li>
               <li class="active"><a href="./addSource">Add Source</a></li>
               <li class="nav-header">Services</li>
-              <li><a href="./services">Show Services</a></li>
-              <li><a href="./addService">Add Service</a></li>
+              <li><a href="../../services">Show Services</a></li>
+              <li><a href="../../addService">Add Service</a></li>
               <li class="nav-header">Tasks</li>
-              <li><a href="./tasks">Task Manager</a></li>
-              <li><a href="./addTask">Add New Task</a></li>
+              <li><a href="../../tasks">Task Manager</a></li>
+              <li><a href="../../addTask">Add New Task</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="row">
         <div class="span6 well">
-          <form class="form-horizontal" action="./addSource" method="POST" enctype="application/x-www-form-urlencoded">
+          <form class="form-horizontal" action="../../addSource" method="POST" enctype="application/x-www-form-urlencoded">
             <fieldset>
               <legend>Manage Data Source</legend>
               <div class="control-group">
@@ -96,7 +96,7 @@
             </fieldset>
           </form>
 
-          
+
         </div>
       </div>
     </div>
