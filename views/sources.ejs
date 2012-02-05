@@ -87,15 +87,13 @@
                       <th>Source ID</th>
                       <th>Source Name</th>
                       <th></th>
-                      <th></th>
                     </thead>
                     <% sources.forEach(function(source){%>
                       <tr>
                         <td><em><%= source.uuid %></em></td>
                         <td><%= source.id %></td>
                         <td><%= source.name %></td>
-                        <td><a href='./source/<%= source.id %>' class="btn btn-small btn-primary"><i class="icon-edit icon-white"></i>&nbsp;edit</a></td>
-                        <td><a href='./deletesource/<%= source.id %>' class="btn btn-small btn-danger"><i class="icon-remove icon-white"></i>&nbsp;delete</a></td>
+                        <td><div class="btn-group"><a href='./source/<%= source.id %>' class="btn btn-small btn-primary"><i class="icon-edit icon-white"></i>&nbsp;edit</a><a href='./deletesource/<%= source.id %>' class="btn btn-small btn-danger"><i class="icon-remove icon-white"></i>&nbsp;delete</a></div></td>
                       </tr>
                     <% }) %>
                 </table>
