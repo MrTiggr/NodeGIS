@@ -4,6 +4,8 @@ var redis = require("redis");
 var jsts = require(__dirname + "/lib/jsts.js");
 var uuid = require('node-uuid');
 
+var geomFactory = new jsts.geom.GeometryFactory(new jsts.geom.PrecisionModel(jsts.geom.PrecisionModel.FLOATING));
+
 var gis = {
   DataManager: function DataManager(opts) {
     var self = this;
@@ -93,6 +95,10 @@ app.get('/', function(req, res) {
 });
 
 app.get('/sources', function(req, res) {
+  console.log(geomFactory.createPoint({
+    x: 120.00,
+    y: 0.00
+  }));
   var DB = new gis.DataManager({});
   DB.listSources(function(srs) {
     res.render(__dirname + '/views/sources.ejs', {
@@ -102,6 +108,18 @@ app.get('/sources', function(req, res) {
     });
   });
   //DB.close();
+});
+
+app.get('/source/:id', function(req, res) {
+  var id = req.params.id;
+  var DB = new gis.DataManager({});
+  DB.listSource(id, function(srs) {
+    res.render(__dirname + '/views/source.ejs', {
+      user: 'tiggr',
+      source: srs,
+      layout: false
+    });
+  });
 });
 
 app.get('/addSource', function(req, res) {
