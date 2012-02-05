@@ -21,7 +21,7 @@ var gis = {
     this.addSource = function(source, callback, error) {
 
       var src = JSON.stringify(source);
-      client.hset("ngis::datasources", source.id, src, redis.print);
+      self.client.hset("ngis::datasources", source.id, src, redis.print);
       callback(source);
       return source;
     }
